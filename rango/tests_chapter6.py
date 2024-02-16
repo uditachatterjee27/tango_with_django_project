@@ -123,14 +123,19 @@ class Chapter6IndexViewTests(TestCase):
 
         expected_pages_order = list(Page.objects.order_by('-views')[:5])
         expected_pages_li = []
+        print(expected_pages_order)
 
         # Populate expected_pages_li, picking out the entry from page_li_entries_regex.
         for expected_page in expected_pages_order:
             expected_pages_li.append(page_li_entries_regex[expected_page.title])
+
         
         # Now we have the five entries regex to match, we can loop over and check each one exists.
         for expected_regex in expected_pages_li:
-            print(self.content)
+            print("#######################")
+            print(expected_regex)
+            print(re.search(expected_regex, self.content))
+            print("#######################")
             self.assertTrue(re.search(expected_regex, self.content), f"{FAILURE_HEADER}Checks for the top five pages in the index() view's response failed. Check you are using the correct list of objects, the correct HTML markup, and try again. '{expected_regex}'{FAILURE_FOOTER}")
         
     def test_index_response_titles(self):

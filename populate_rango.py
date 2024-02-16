@@ -23,10 +23,10 @@ def populate():
          'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
          'views': 3},
         {'title': 'Django Rocks',
-         'url': 'http://www.djangorocks.com',
+         'url': 'http://www.djangorocks.com/',
          'views': 12},
         {'title': 'How to Tango with Django',
-         'url': 'http://www.tangowithdjango.com',
+         'url': 'http://www.tangowithdjango.com/',
          'views': 20}
     ]
     
@@ -42,12 +42,7 @@ def populate():
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64},
             'Django': {'pages': django_pages, 'views': 64, 'likes': 32},
             'Other Frameworks': {'pages': other_pages, 'views': 32, 'likes': 16},
-            'Pascal': {'pages': [], 'views': 256, 'likes': 8},
-            'Perl': {'pages': [], 'views': 512, 'likes': 4},
-            'PHP': {'pages': [], 'views': 256, 'likes': 2},
-            'Prolog': {'pages': [], 'views': 128, 'likes': 16},
-            'PostScript': {'pages': [], 'views': 64, 'likes': 8},
-            'Programming': {'pages': [], 'views': 32, 'likes': 4},}
+            }
     
     for cat, cat_data in cats.items():
         c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'])
