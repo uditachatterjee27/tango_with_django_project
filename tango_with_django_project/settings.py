@@ -19,7 +19,10 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 
+LOGIN_URL = '/rango/login/'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_l^8!-a7v%4*f2e1)a418i2h_g)mnq04m!!2i*mqsq)$9#d*a4'
 
@@ -69,6 +72,11 @@ TEMPLATES = [
         },
     },
 ]
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
+
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
@@ -121,6 +129,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
+LOGIN_URL = 'rango:login'
 
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
