@@ -1,6 +1,6 @@
-
 from django.db import models
-from django.template.defaultfilters import slugifyfrom django.contrib.auth.models import User
+from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 class Category(models.Model):
     NAME_MAX_LENGTH = 128
@@ -19,10 +19,6 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
-
-    
-    
-    
 class Page(models.Model):
     TITLE_MAX_LENGTH = 128
     URL_MAX_LENGTH = 200
@@ -34,7 +30,7 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
-    
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     website = models.URLField(blank=True)
@@ -42,5 +38,3 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-    
-
